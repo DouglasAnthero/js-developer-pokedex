@@ -146,6 +146,8 @@
     border-radius: 1rem;
 }
 
+
+
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;
@@ -195,7 +197,7 @@
     padding: 0rem;
     border-radius: 1rem;
     height: 100%;
-
+    max-height: 865px;
     background-color: aquamarine;
     position: relative;
 
@@ -228,7 +230,7 @@
     width: 100%;
     margin-top: -2rem;
     border-radius: 1rem;
-    background-color: rgb(153, 127, 255);
+    background-color: white;
     border-radius: 1rem;
 
 }
@@ -255,4 +257,57 @@ h2 {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.menu-info {
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+    justify-content: space-around;
+}
+
+.menu-info span {
+    height: 3rem;
+    width: 30%;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.menu-content {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.menu-content ol {
+    padding: 0;
+}
+
+.menu-content li {
+    list-style: none;
+}
+
+.menu-content span {
+    font-weight: bold;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.breeding-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-title {
+    width: 45%;
+    color: rgb(95, 94, 94);
+}
+
+.breeding-title {
+    width: 45%;
+    color: rgb(95, 94, 94);
 }
