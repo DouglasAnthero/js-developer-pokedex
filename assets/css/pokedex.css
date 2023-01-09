@@ -106,13 +106,13 @@
     justify-content: space-between;
 }
 
-.pokemon .detail .types {
+.types {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.pokemon .detail .types .type {
+.type {
     color: #fff;
     padding: .25rem .5rem;
     margin: .25rem 0;
@@ -150,6 +150,11 @@
     .pokemons {
         grid-template-columns: 1fr 1fr;
     }
+
+    .pokemon-info-container {
+        width: 380px;
+    }
+
 }
 
 @media screen and (min-width: 576px) {
@@ -162,4 +167,92 @@
     .pokemons {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+
+    .pokemon-info-container {
+        width: 380px;
+    }
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: 0;
+    padding: 2rem;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    /*visibility: hidden;*/
+}
+
+.pokemon-info-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0rem;
+    padding: 0rem;
+    border-radius: 1rem;
+    height: 100%;
+
+    background-color: aquamarine;
+    position: relative;
+
+}
+
+.pokemon-img {
+    box-sizing: border-box;
+    padding: 2rem;
+    height: 50%;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    background-color: aquamarine;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.pokemon-img img {
+
+
+    margin-top: 5rem;
+    position: relative;
+    width: 85%;
+}
+
+.pokemon-info {
+    height: 50%;
+    width: 100%;
+    margin-top: -2rem;
+    border-radius: 1rem;
+    background-color: rgb(153, 127, 255);
+    border-radius: 1rem;
+
+}
+
+.pokemon-img .types {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.modal-number {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.pokemon-info-container h1,
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
