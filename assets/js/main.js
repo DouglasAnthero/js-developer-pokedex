@@ -4,10 +4,10 @@ const about = document.querySelector('.about')
 const stats = document.querySelector('.stats')
 const baseStats = document.querySelector('.base-stats')
 const valueStats = document.querySelector('.value-stats')
-
 const maxRecords = 151
 const limit = 10
 let offset = 0;
+let cards = [];
 
 function convertPokemonToLi(pokemon) {
     return `
@@ -43,10 +43,11 @@ loadMoreButton.addEventListener('click', () => {
     if (qtdRecordsWithNexPage >= maxRecords) {
         const newLimit = maxRecords - offset
         loadPokemonItens(offset, newLimit)
-
+        createCards();
         loadMoreButton.parentElement.removeChild(loadMoreButton)
     } else {
         loadPokemonItens(offset, limit)
+        createCards();
     }
 })
 
@@ -86,3 +87,19 @@ stats.addEventListener('click', (event) => {
         stats.style.borderBottom = '0.2rem solid black';
     }
 })
+
+function createCards() {
+    setTimeout(() => {
+        cards = document.getElementsByClassName('pokemon')
+        for (const card of cards) {
+            card.addEventListener('click', (event) => {
+                event.stopPropagation();
+                event.preventDefault();
+                console.log(card);
+            })
+        }
+        console.log(cards.length);
+    }, 250)
+};
+
+createCards();
