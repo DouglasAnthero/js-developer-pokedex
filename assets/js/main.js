@@ -1,5 +1,9 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
+const about = document.querySelector('.about')
+const stats = document.querySelector('.stats')
+const baseStats = document.querySelector('.base-stats')
+const valueStats = document.querySelector('.value-stats')
 
 const maxRecords = 151
 const limit = 10
@@ -43,5 +47,42 @@ loadMoreButton.addEventListener('click', () => {
         loadMoreButton.parentElement.removeChild(loadMoreButton)
     } else {
         loadPokemonItens(offset, limit)
+    }
+})
+
+
+const aboutTitle = document.querySelector('.about-title')
+const aboutContent = document.querySelector('.about-content')
+const breeding = document.querySelector('.breeding')
+const breedingContainer = document.querySelector('.breeding-container')
+
+about.addEventListener('click', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (aboutTitle.classList.contains('deactivated')) {
+        aboutTitle.classList.remove('deactivated')
+        aboutContent.classList.remove('deactivated')
+        breeding.classList.remove('deactivated')
+        breedingContainer.classList.remove('deactivated')
+        baseStats.classList.add('deactivated')
+        valueStats.classList.add('deactivated')
+        stats.style.borderBottom = 'none';
+        about.style.borderBottom = '0.2rem solid black';
+    }
+})
+
+
+stats.addEventListener('click', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    if (baseStats.classList.contains('deactivated')) {
+        aboutTitle.classList.add('deactivated')
+        aboutContent.classList.add('deactivated')
+        breeding.classList.add('deactivated')
+        breedingContainer.classList.add('deactivated')
+        baseStats.classList.remove('deactivated')
+        valueStats.classList.remove('deactivated')
+        about.style.borderBottom = 'none';
+        stats.style.borderBottom = '0.2rem solid black';
     }
 })
