@@ -33,3 +33,11 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
+
+async function getPokemonModalInfo(id) {
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${id + 1}`
+    return fetch(url)
+        .then((response) => response.json())
+        .then((jsonDetails) => jsonDetails);
+}
+getPokemonModalInfo(0);
