@@ -1,6 +1,5 @@
 
 const pokeApi = {}
-
 function convertPokeApiDetailToPokemon(pokeDetail) {
     const pokemon = new Pokemon()
     pokemon.number = pokeDetail.id
@@ -14,6 +13,13 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
 
+    pokemon.hp = pokeDetail.stats[0]
+    pokemon.attack = pokeDetail.stats[1]
+    pokemon.defense = pokeDetail.stats[2]
+    pokemon.specialAttack = pokeDetail.stats[3]
+    pokemon.specialDefense = pokeDetail.stats[4]
+    pokemon.speed = pokeDetail.stats[5]
+    pokemon.text = getPokemonModalInfo(pokemon.number);
     return pokemon
 }
 
@@ -34,10 +40,13 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then((pokemonsDetails) => pokemonsDetails)
 }
 
-async function getPokemonModalInfo(id) {
-    const url = `https://pokeapi.co/api/v2/pokemon-species/${id + 1}`
+function getPokemonModalInfo(id) {
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`
     return fetch(url)
         .then((response) => response.json())
-        .then((jsonDetails) => jsonDetails);
+        .then((jsonDetails) => jsonDetails.flavor_text_entries)
+        .then((jsonDetails) => jsonDetails.find(jsonDetails => jsonDetails.language.name === 'en'))
+        .then((jsonDetails) => jsonDetails.flavor_text)
+
 }
-getPokemonModalInfo(0);
+
