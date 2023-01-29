@@ -1,6 +1,13 @@
 * {
+    margin: 0px;
+    padding: 0px;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+}
+
+html {
+    display: flex;
+    flex-direction: column;
 }
 
 body {
