@@ -90,8 +90,6 @@ function fillModal(card) {
 function callModal(cards) {
     for (i = 0; i < cards.length; i++) {
         cards[i].addEventListener('click', (event) => {
-            // event.stopPropagation();
-            // event.preventDefault();
             console.log(cards, 'da função');
             modal.classList.remove('deactivated');
             fillModal(parseInt(event.currentTarget.id - 1))
@@ -107,8 +105,6 @@ function createCards() {
 };
 
 about.addEventListener('click', (event) => {
-    // event.stopPropagation();
-    // event.preventDefault();
     if (aboutText.classList.contains('deactivated')) {
         aboutText.classList.remove('deactivated')
         baseStats.classList.add('deactivated')
@@ -119,8 +115,6 @@ about.addEventListener('click', (event) => {
     }
 })
 stats.addEventListener('click', (event) => {
-    //  event.stopPropagation();
-    // event.preventDefault();
     if (baseStats.classList.contains('deactivated')) {
         aboutText.classList.add('deactivated')
         baseStats.classList.remove('deactivated')
@@ -130,14 +124,18 @@ stats.addEventListener('click', (event) => {
         stats.style.borderBottom = '0.2rem solid black';
     }
 })
-closeBtn.addEventListener('click', (event) => {
-    //   event.stopPropagation()
-    // event.preventDefault()
+
+function closeModal() {
     modal.classList.add('deactivated');
     containerType.innerHTML = '';
     containerInfo.classList.remove(pokemonClass[1]);
     aboutText.textContent = 'Loading Content...';
-})
+}
+
+closeBtn.addEventListener('click', (event) => {
+    closeModal()
+});
+
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNexPage = offset + limit
@@ -155,20 +153,3 @@ loadMoreButton.addEventListener('click', () => {
 
 loadPokemonItens(offset, limit)
 createCards();
-console.log(cards, 'do corpo');
-//let dontReload = false
-//carregarPreferencias();
-//console.log(dontReload);
-//
-//
-//function carregarPreferencias() {
-//    dontReload = localStorage.getItem('Reload', JSON.parse(dontReload));
-//}
-//
-//if (dontReload == false) {
-//    dontReload = localStorage.setItem('Reload', false);
-//    reloadPage();
-//}
-//function reloadPage() {
-//    setInterval(window.location.reload(), 3000)
-//}
