@@ -255,10 +255,19 @@ h2 {
 .menu-content {
     padding: 1.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     overflow: auto;
     height: calc(100% - 72px);
+}
+
+.menu-content li {
+    list-style: none;
+}
+
+.menu-content span {
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 
 .value-stats,
@@ -275,15 +284,6 @@ h2 {
     flex-direction: column;
     gap: 2rem;
     margin-left: 0.25rem;
-}
-
-.menu-content li {
-    list-style: none;
-}
-
-.menu-content span {
-    font-weight: bold;
-    font-size: 1.3rem;
 }
 
 .about-container {
